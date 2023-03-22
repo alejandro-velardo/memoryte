@@ -1,14 +1,13 @@
 import React from 'react'
 
-export const Image = ({clickImg, img, isVisible, key}) => {
+export const Image = ({clickImg, img, isVisible, index}) => {
   return (
-    <div onClick={() => clickImg(img, isVisible)} > 
+    <div> 
     {
         isVisible 
-        ? <img className="logo" src={`./public/img/${img}`} alt="" img={isVisible}/>
-        : <div className="covered-logo"> ? </div>
-    }
-        
+        ? <img className="logo" src={`./public/img/${img}`} alt="" />
+        : <div className="covered-logo" onClick={() => clickImg(index, img)}> ? </div>
+    }    
     </div>
   )
 }

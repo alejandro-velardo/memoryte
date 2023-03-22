@@ -2,63 +2,58 @@ import React from 'react'
 import Image from './Image'
 
 
-export const Board = ({clickImg, logos}) => {
+export const Board = ({logos, clickImg}) => {
+
 
     
 
-    const  getRandomInt = (max) => {
-        return Math.floor(Math.random() * max);
-      }
-
-
-    const shuffleArray = array => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            const temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-    }
-
-    const randomizeSources = (logos) => {
-        const randomLogos = []
-        for (let i = 0; i<10; i++) {
-            const logoIndex = getRandomInt(11)
-            let logoSrc = logos[logoIndex].img
-            let isVisible = logos[logoIndex].isVisible
-
-            while (randomLogos.some(logo => logo.src === logoSrc)) {
-                logoSrc = logos[getRandomInt(11)].img
-            }
-
-            randomLogos.push(
-                {
-                    src: logoSrc,
-                    isVisible : isVisible
-                }, 
-                {
-                    src: logoSrc,
-                    isVisible : isVisible
-                }, )
-        }
-        
-        shuffleArray(randomLogos)
-        console.log(randomLogos)
-        return randomLogos
-    }
-
-    const logifier = (logo, index) => {
+    const createLogos = (logo, index) => {
         return (
-            <Image img={logo.src} clickImg={clickImg} key={index} isVisible={logo.isVisible} />
+            <Image img={logo.src} clickImg={clickImg} key={index} index={index} isVisible={logo.isVisible} />
         )
     }
-
-    const board = randomizeSources(logos).map((source, index) => logifier(source, index))
+    const board = logos.map((logo, index) => createLogos(logo, index))
   
   
     return (
     <div className='board'>
-        {board}
+        <h1>Memory</h1>
+        {
+            <div className="board-row">
+                {board[0]}
+                {board[1]}
+                {board[2]}
+                {board[3]}
+                {board[4]}
+            </div>
+        }
+        {
+            <div className="board-row">
+                {board[5]}
+                {board[6]}
+                {board[7]}
+                {board[8]}
+                {board[9]}
+            </div>
+        }
+        {
+            <div className="board-row">
+                {board[10]}
+                {board[11]}
+                {board[12]}
+                {board[13]}
+                {board[14]}
+            </div>
+        }
+        {
+            <div className="board-row">
+                {board[15]}
+                {board[16]}
+                {board[17]}
+                {board[18]}
+                {board[19]}
+            </div>
+        }
     </div>
   )
 }
