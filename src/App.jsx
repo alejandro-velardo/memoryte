@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { useEffect, useState } from 'react';
-import NavMenu from './components/NavMenu'
 import Button from 'react-bootstrap/Button'
 import Board from './components/Board'
 
@@ -162,7 +161,6 @@ function App() {
 
   return (
     <div className="pp">
-      <NavMenu /> 
       <Board logos={logos}  clickImg={clickImg}/>
       <br />
       <div className='count-container'>
