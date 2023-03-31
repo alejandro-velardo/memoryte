@@ -1,10 +1,9 @@
 This is a simple memory game.
 
-To run it simply install the dependencies:
+To run it, simply install the dependencies:
 
 npm install
 
-Adn use the command 
+And use the following command to start the app.
 
 npm run dev 
-
